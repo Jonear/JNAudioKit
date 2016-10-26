@@ -8,14 +8,7 @@
 
 #import <AudioToolbox/AudioFile.h>
 #import <AudioToolbox/AudioToolbox.h>
-
-typedef NS_ENUM(NSInteger, JNAudioEffectType) {
-    JNAudioEffectType_Normal,          // regular table view
-    JNAudioEffectType_SmallRoom,         // preferences style table view
-    JNAudioEffectType_MidRoom,
-    JNAudioEffectType_BigRoom,
-    JNAudioEffectType_HallRoom
-};
+#import "JNAudioEffectProcessor.h"
 
 #define Noti_SaveProgressChanged @"Noti_SaveProgressChanged"
 

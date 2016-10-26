@@ -8,8 +8,7 @@
 
 #import "KSAVPlayer.h"
 #import "AudioHelper.h"
-#import "freeverb.h"
-#import "AudioEffectType.h"
+#import "JNAudioEffectProcessor.h"
 
 @implementation KSAVPlayer {
     AVPlayerItem *_playerItem;
@@ -231,9 +230,6 @@ void unprepare(MTAudioProcessingTapRef tap)
     NSLog(@"Unpreparing the Audio Tap Processor");
 }
 
-#define LAKE_LEFT_CHANNEL (0)
-#define LAKE_RIGHT_CHANNEL (1)
-
 void process(MTAudioProcessingTapRef tap, CMItemCount numberFrames,
              MTAudioProcessingTapFlags flags, AudioBufferList *bufferListInOut,
              CMItemCount *numberFramesOut, MTAudioProcessingTapFlags *flagsOut)
@@ -249,13 +245,7 @@ void process(MTAudioProcessingTapRef tap, CMItemCount numberFrames,
 //    vDSP_vsmul(bufferListInOut->mBuffers[LAKE_RIGHT_CHANNEL].mData, 1, &scalar, bufferListInOut->mBuffers[LAKE_RIGHT_CHANNEL].mData, 1, bufferListInOut->mBuffers[LAKE_RIGHT_CHANNEL].mDataByteSize / sizeof(float));
 //    vDSP_vsmul(bufferListInOut->mBuffers[LAKE_LEFT_CHANNEL].mData, 1, &scalar, bufferListInOut->mBuffers[LAKE_LEFT_CHANNEL].mData, 1, bufferListInOut->mBuffers[LAKE_LEFT_CHANNEL].mDataByteSize / sizeof(float));
     
-    
-//    RevSettings EchoPara = arry_echo_para[JNAudioEffectType_BigRoom];
-//    freeverb *pEchoProcessor = new freeverb(&EchoPara);
-////    NSLog(@"!~~~~~~~~~%zd", numberFramesOut);
-//    pEchoProcessor->process(44100, 1, 2, bufferListInOut->mBuffers[0].mData, bufferListInOut->mBuffers[0].mDataByteSize/2, false);
-//    pEchoProcessor->process(44100, 1, 2, bufferListInOut->mBuffers[1].mData, bufferListInOut->mBuffers[1].mDataByteSize/2, false);
-    
+    [JNAudioEffectProcessor process:JNAudioEffectType_BigRoom samples:bufferListInOut->mBuffers[0].mData numsamples:bufferListInOut->mBuffers[0].mDataByteSize/2];
     
 }
 @end
