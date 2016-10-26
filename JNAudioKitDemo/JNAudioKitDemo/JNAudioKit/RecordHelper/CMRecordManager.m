@@ -53,14 +53,14 @@
 	NSError *err = nil;
 	[_audioSession setCategory :AVAudioSessionCategoryPlayAndRecord error:&err];
 	if(err){
-        NSLog(@"audioSession: %@ %d %@", [err domain], [err code], [[err userInfo] description]);
+        NSLog(@"audioSession: %@ %zd %@", [err domain], [err code], [[err userInfo] description]);
         return;
 	}
     
     err = nil;
 	[_audioSession setActive:YES error:&err];
 	if(err){
-        NSLog(@"audioSession: %@ %d %@", [err domain], [err code], [[err userInfo] description]);
+        NSLog(@"audioSession: %@ %zd %@", [err domain], [err code], [[err userInfo] description]);
         return;
 	}
 	
@@ -89,7 +89,7 @@
 	}
 	_recorder = [[ AVAudioRecorder alloc] initWithURL:[NSURL fileURLWithPath:self.recordFilePath] settings:recordSetting error:&err];
 	if(!_recorder){
-        NSLog(@"recorder: %@ %d %@", [err domain], [err code], [[err userInfo] description]);
+        NSLog(@"recorder: %@ %zd %@", [err domain], [err code], [[err userInfo] description]);
         return;
 	}
 
@@ -101,6 +101,7 @@
     if (!_timer && res) {
         _timer = [NSTimer scheduledTimerWithTimeInterval:WAVE_UPDATE_FREQUENCY target:self selector:@selector(updateMeters) userInfo:nil repeats:YES];
     }
+    
 	AudioSessionInitialize(NULL, NULL,nil,(__bridge  void *)(self));
 	UInt32 sessionCategory = kAudioSessionCategory_PlayAndRecord;
 	AudioSessionSetProperty(kAudioSessionProperty_AudioCategory,

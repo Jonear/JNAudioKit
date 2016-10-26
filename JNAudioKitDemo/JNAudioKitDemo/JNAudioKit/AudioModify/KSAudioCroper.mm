@@ -181,7 +181,7 @@
             break;
         }
         
-        UInt32 un_frame_count = MIN(un_frame_count_acomp, endOffset-fileSkip-un_processed_frames);
+        UInt32 un_frame_count = (UInt32)MIN(un_frame_count_acomp, endOffset-fileSkip-un_processed_frames);
         if (un_frame_count <= 0) {
             break;
         }
