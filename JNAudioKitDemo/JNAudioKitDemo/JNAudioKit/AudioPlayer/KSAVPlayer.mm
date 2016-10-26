@@ -8,6 +8,8 @@
 
 #import "KSAVPlayer.h"
 #import "AudioHelper.h"
+#import "freeverb.h"
+#import "AudioEffectType.h"
 
 @implementation KSAVPlayer {
     AVPlayerItem *_playerItem;
@@ -36,6 +38,7 @@
     }
 
     _playerItem = [AVPlayerItem playerItemWithURL:audio_url];
+    [self initCallBack:audio_url];
     [_playerItem addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:nil];
     [m_pAudioAVPlayer replaceCurrentItemWithPlayerItem:_playerItem];
     
@@ -47,8 +50,47 @@
     m_bPlaying = NO;
     
     m_pAudioURL = [audio_url copy];
+    
+    
 
     return YES;
+}
+
+- (void)initCallBack:(NSURL*)audio_url {
+    // Continuing on from where we created the AVAsset...
+    AVAsset *asset = [AVAsset assetWithURL:audio_url];
+    AVAssetTrack *audioTrack = [[asset tracks] objectAtIndex:0];
+    AVMutableAudioMixInputParameters *inputParams = [AVMutableAudioMixInputParameters audioMixInputParametersWithTrack:audioTrack];
+    
+    // Create a processing tap for the input parameters
+    MTAudioProcessingTapCallbacks callbacks;
+    callbacks.version = kMTAudioProcessingTapCallbacksVersion_0;
+    callbacks.clientInfo = (__bridge void *)(self);
+    callbacks.init = init;
+    callbacks.prepare = prepare;
+    callbacks.process = process;
+    callbacks.unprepare = unprepare;
+    callbacks.finalize = finalize;
+    
+    MTAudioProcessingTapRef tap;
+    // The create function makes a copy of our callbacks struct
+    OSStatus err = MTAudioProcessingTapCreate(kCFAllocatorDefault, &callbacks,
+                                              kMTAudioProcessingTapCreationFlag_PostEffects, &tap);
+    if (err || !tap) {
+        NSLog(@"Unable to create the Audio Processing Tap");
+        return;
+    }
+    assert(tap);
+    
+    // Assign the tap to the input parameters
+    inputParams.audioTapProcessor = tap;
+    
+    // Create a new AVAudioMix and assign it to our AVPlayerItem
+    AVMutableAudioMix *audioMix = [AVMutableAudioMix audioMix];
+    audioMix.inputParameters = @[inputParams];
+    _playerItem.audioMix = audioMix;
+    
+    // And then we create the AVPlayer with the playerItem, and send it the play message...
 }
 
 - (BOOL)play {
@@ -159,12 +201,61 @@
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
-    AVPlayerItemStatus status = [[change objectForKey:@"new"] integerValue];
-    if (status == AVPlayerItemStatusFailed) {
-        if (_delegate && [_delegate respondsToSelector:@selector(didPlayError:)]) {
-            [_delegate didPlayError:self];
-        }
-    }
+//    AVPlayerItemStatus status = [[change objectForKey:@"new"] integerValue];
+//    if (status == AVPlayerItemStatusFailed) {
+//        if (_delegate && [_delegate respondsToSelector:@selector(didPlayError:)]) {
+//            [_delegate didPlayError:self];
+//        }
+//    }
 }
 
+
+void init(MTAudioProcessingTapRef tap, void *clientInfo, void **tapStorageOut)
+{
+    NSLog(@"Initialising the Audio Tap Processor");
+    *tapStorageOut = clientInfo;
+}
+
+void finalize(MTAudioProcessingTapRef tap)
+{
+    NSLog(@"Finalizing the Audio Tap Processor");
+}
+
+void prepare(MTAudioProcessingTapRef tap, CMItemCount maxFrames, const AudioStreamBasicDescription *processingFormat)
+{
+    NSLog(@"Preparing the Audio Tap Processor");
+}
+
+void unprepare(MTAudioProcessingTapRef tap)
+{
+    NSLog(@"Unpreparing the Audio Tap Processor");
+}
+
+#define LAKE_LEFT_CHANNEL (0)
+#define LAKE_RIGHT_CHANNEL (1)
+
+void process(MTAudioProcessingTapRef tap, CMItemCount numberFrames,
+             MTAudioProcessingTapFlags flags, AudioBufferList *bufferListInOut,
+             CMItemCount *numberFramesOut, MTAudioProcessingTapFlags *flagsOut)
+{
+    OSStatus err = MTAudioProcessingTapGetSourceAudio(tap, numberFrames, bufferListInOut,
+                                                      flagsOut, NULL, numberFramesOut);
+    if (err) NSLog(@"Error from GetSourceAudio: %zd", err);
+
+//    LAKEViewController *self = (__bridge LAKEViewController *) MTAudioProcessingTapGetStorage(tap);
+//    
+//    float scalar = self.slider.value;
+    
+//    vDSP_vsmul(bufferListInOut->mBuffers[LAKE_RIGHT_CHANNEL].mData, 1, &scalar, bufferListInOut->mBuffers[LAKE_RIGHT_CHANNEL].mData, 1, bufferListInOut->mBuffers[LAKE_RIGHT_CHANNEL].mDataByteSize / sizeof(float));
+//    vDSP_vsmul(bufferListInOut->mBuffers[LAKE_LEFT_CHANNEL].mData, 1, &scalar, bufferListInOut->mBuffers[LAKE_LEFT_CHANNEL].mData, 1, bufferListInOut->mBuffers[LAKE_LEFT_CHANNEL].mDataByteSize / sizeof(float));
+    
+    
+//    RevSettings EchoPara = arry_echo_para[JNAudioEffectType_BigRoom];
+//    freeverb *pEchoProcessor = new freeverb(&EchoPara);
+////    NSLog(@"!~~~~~~~~~%zd", numberFramesOut);
+//    pEchoProcessor->process(44100, 1, 2, bufferListInOut->mBuffers[0].mData, bufferListInOut->mBuffers[0].mDataByteSize/2, false);
+//    pEchoProcessor->process(44100, 1, 2, bufferListInOut->mBuffers[1].mData, bufferListInOut->mBuffers[1].mDataByteSize/2, false);
+    
+    
+}
 @end

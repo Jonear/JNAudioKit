@@ -13,16 +13,16 @@
 #include "freeverb.h"
 #endif
 
-enum EAudioEchoEffect{
-    NO_EFFECT = 0,      
-    SMALL_ROOM_EFFECT,
-    MID_ROOM_EFFECT,
-    BIG_ROOM_EFFECT,
-    BIG_HALL_EFFECT
-};
-
-enum EAudioSoundEffect{
-};
+//enum EAudioEchoEffect{
+//    NO_EFFECT = 0,
+//    SMALL_ROOM_EFFECT,
+//    MID_ROOM_EFFECT,
+//    BIG_ROOM_EFFECT,
+//    BIG_HALL_EFFECT
+//};
+//
+//enum EAudioSoundEffect{
+//};
 
 /*struct RevSettings {
     int n_room_size;

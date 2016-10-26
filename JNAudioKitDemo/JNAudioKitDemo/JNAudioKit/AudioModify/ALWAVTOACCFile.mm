@@ -8,24 +8,25 @@
 
 #import "ALWAVTOACCFile.h"
 #import "freeverb.h"
+#import "AudioEffectType.h"
 
 @implementation JNAudioWaveAAC
 
 + (BOOL)audioWavToAAC:(NSString *)inputFilePath outputFile:(NSString *)outputFilePath rate:(UInt32)bitrate {
-    return [self audioWavToAAC:inputFilePath outputFile:outputFilePath rate:bitrate effectType:NO_EFFECT];
+    return [self audioWavToAAC:inputFilePath outputFile:outputFilePath rate:bitrate effectType:JNAudioEffectType_Normal];
 }
 
-+ (BOOL)audioWavToAAC:(NSString *)inputFilePath outputFile:(NSString *)outputFilePath rate:(UInt32)bitrate effectType:(EAudioEchoEffect)effectType {
++ (BOOL)audioWavToAAC:(NSString *)inputFilePath outputFile:(NSString *)outputFilePath rate:(UInt32)bitrate effectType:(JNAudioEffectType)effectType {
     
-    CFURLRef url_input_file = (__bridge CFURLRef)[NSURL URLWithString:inputFilePath];
-    CFURLRef url_output_file = (__bridge CFURLRef)[NSURL URLWithString:outputFilePath];
+    CFURLRef url_input_file = (__bridge CFURLRef)[NSURL fileURLWithPath:inputFilePath isDirectory:NO];
+    CFURLRef url_output_file = (__bridge CFURLRef)[NSURL fileURLWithPath:outputFilePath isDirectory:NO];
     
     ExtAudioFileRef file_source = NULL;
     AudioStreamBasicDescription format_source;
     ExtAudioFileOpenURL(url_input_file, &file_source);
     
     freeverb *_pEchoProcessor = nil;
-    if (effectType != NO_EFFECT) {
+    if (effectType != JNAudioEffectType_Normal) {
         RevSettings EchoPara = arry_echo_para[effectType];
         _pEchoProcessor = new freeverb(&EchoPara);
     }
@@ -118,7 +119,7 @@
         }
         
         // 魔音
-        if (effectType != NO_EFFECT && _pEchoProcessor) {
+        if (effectType != JNAudioEffectType_Normal && _pEchoProcessor) {
             _pEchoProcessor->process(44100, 1, 2, fill_buf_list.mBuffers[0].mData, fill_buf_list.mBuffers[0].mDataByteSize/2, false);
         }
         ExtAudioFileWrite(file_dest, un_num_frames, &fill_buf_list);
@@ -127,7 +128,9 @@
         ExtAudioFileDispose(file_source);
     }
     ExtAudioFileDispose(file_dest);
-    [[NSNotificationCenter defaultCenter] postNotificationName:Noti_SaveProgressChanged object:@(1)];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [[NSNotificationCenter defaultCenter] postNotificationName:Noti_SaveProgressChanged object:@(1)];
+    });
     
     return YES;
 }

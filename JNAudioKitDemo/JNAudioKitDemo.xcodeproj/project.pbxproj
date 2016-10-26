@@ -15,12 +15,13 @@
 		E6C12D9D1DBE3A410080C8ED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6C12D9B1DBE3A410080C8ED /* LaunchScreen.storyboard */; };
 		E6CCBB681DC049A6001883C2 /* KSAudioCroper.mm in Sources */ = {isa = PBXBuildFile; fileRef = E6CCBB5C1DC049A6001883C2 /* KSAudioCroper.mm */; };
 		E6CCBB691DC049A6001883C2 /* KSAudioMixer.mm in Sources */ = {isa = PBXBuildFile; fileRef = E6CCBB5E1DC049A6001883C2 /* KSAudioMixer.mm */; };
-		E6CCBB6A1DC049A6001883C2 /* KSAVPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = E6CCBB611DC049A6001883C2 /* KSAVPlayer.m */; };
+		E6CCBB6A1DC049A6001883C2 /* KSAVPlayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = E6CCBB611DC049A6001883C2 /* KSAVPlayer.mm */; };
 		E6CCBB6B1DC049A6001883C2 /* AudioHelper.mm in Sources */ = {isa = PBXBuildFile; fileRef = E6CCBB641DC049A6001883C2 /* AudioHelper.mm */; };
 		E6CCBB6C1DC049A6001883C2 /* CMRecordManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E6CCBB661DC049A6001883C2 /* CMRecordManager.m */; };
 		E6CCBB731DC05A44001883C2 /* ALWAVTOACCFile.mm in Sources */ = {isa = PBXBuildFile; fileRef = E6CCBB721DC05A44001883C2 /* ALWAVTOACCFile.mm */; };
 		E6CCBB7E1DC0861C001883C2 /* freeverb.mm in Sources */ = {isa = PBXBuildFile; fileRef = E6CCBB7B1DC0861C001883C2 /* freeverb.mm */; };
 		E6CCBB7F1DC0861C001883C2 /* revmodel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E6CCBB7C1DC0861C001883C2 /* revmodel.cpp */; };
+		E6CCBB841DC090AE001883C2 /* asd.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E6CCBB831DC090AE001883C2 /* asd.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,7 +40,7 @@
 		E6CCBB5D1DC049A6001883C2 /* KSAudioMixer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSAudioMixer.h; sourceTree = "<group>"; };
 		E6CCBB5E1DC049A6001883C2 /* KSAudioMixer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = KSAudioMixer.mm; sourceTree = "<group>"; };
 		E6CCBB601DC049A6001883C2 /* KSAVPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSAVPlayer.h; sourceTree = "<group>"; };
-		E6CCBB611DC049A6001883C2 /* KSAVPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSAVPlayer.m; sourceTree = "<group>"; };
+		E6CCBB611DC049A6001883C2 /* KSAVPlayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = KSAVPlayer.mm; sourceTree = "<group>"; };
 		E6CCBB631DC049A6001883C2 /* AudioHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioHelper.h; sourceTree = "<group>"; };
 		E6CCBB641DC049A6001883C2 /* AudioHelper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AudioHelper.mm; sourceTree = "<group>"; };
 		E6CCBB651DC049A6001883C2 /* CMRecordManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMRecordManager.h; sourceTree = "<group>"; };
@@ -55,6 +56,7 @@
 		E6CCBB7B1DC0861C001883C2 /* freeverb.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = freeverb.mm; sourceTree = "<group>"; };
 		E6CCBB7C1DC0861C001883C2 /* revmodel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = revmodel.cpp; sourceTree = "<group>"; };
 		E6CCBB7D1DC0861C001883C2 /* revmodel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = revmodel.h; sourceTree = "<group>"; };
+		E6CCBB831DC090AE001883C2 /* asd.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = asd.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 				E6C12D911DBE3A410080C8ED /* AppDelegate.m */,
 				E6C12D931DBE3A410080C8ED /* ViewController.h */,
 				E6C12D941DBE3A410080C8ED /* ViewController.m */,
+				E6CCBB831DC090AE001883C2 /* asd.mp3 */,
 				E6C12D961DBE3A410080C8ED /* Main.storyboard */,
 				E6C12D991DBE3A410080C8ED /* Assets.xcassets */,
 				E6C12D9B1DBE3A410080C8ED /* LaunchScreen.storyboard */,
@@ -137,7 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				E6CCBB601DC049A6001883C2 /* KSAVPlayer.h */,
-				E6CCBB611DC049A6001883C2 /* KSAVPlayer.m */,
+				E6CCBB611DC049A6001883C2 /* KSAVPlayer.mm */,
 			);
 			path = AudioPlayer;
 			sourceTree = "<group>";
@@ -200,6 +203,7 @@
 				TargetAttributes = {
 					E6C12D891DBE3A410080C8ED = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = RH9YZ6ZF29;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -228,6 +232,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E6C12D9D1DBE3A410080C8ED /* LaunchScreen.storyboard in Resources */,
+				E6CCBB841DC090AE001883C2 /* asd.mp3 in Resources */,
 				E6C12D9A1DBE3A410080C8ED /* Assets.xcassets in Resources */,
 				E6C12D981DBE3A410080C8ED /* Main.storyboard in Resources */,
 			);
@@ -243,7 +248,7 @@
 				E6CCBB6C1DC049A6001883C2 /* CMRecordManager.m in Sources */,
 				E6CCBB6B1DC049A6001883C2 /* AudioHelper.mm in Sources */,
 				E6CCBB681DC049A6001883C2 /* KSAudioCroper.mm in Sources */,
-				E6CCBB6A1DC049A6001883C2 /* KSAVPlayer.m in Sources */,
+				E6CCBB6A1DC049A6001883C2 /* KSAVPlayer.mm in Sources */,
 				E6CCBB691DC049A6001883C2 /* KSAudioMixer.mm in Sources */,
 				E6CCBB731DC05A44001883C2 /* ALWAVTOACCFile.mm in Sources */,
 				E6C12D951DBE3A410080C8ED /* ViewController.m in Sources */,
@@ -370,6 +375,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = RH9YZ6ZF29;
 				INFOPLIST_FILE = JNAudioKitDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -386,6 +392,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = RH9YZ6ZF29;
 				INFOPLIST_FILE = JNAudioKitDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
