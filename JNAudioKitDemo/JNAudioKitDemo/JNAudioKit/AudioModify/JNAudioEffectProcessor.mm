@@ -12,12 +12,12 @@
 
 @implementation JNAudioEffectProcessor
 
-+ (void)process:(JNAudioEffectType)type samples:(inout void *)samples0 numsamples:(unsigned int)numsamples {
++ (void)process:(JNAudioEffectType)type samples:(void *)samples0 numsamples:(unsigned int)numsamples {
     [self process:type samples:samples0 numsamples:numsamples samp:44100 sf:1 nchannels:2];
 }
 
 + (void)process:(JNAudioEffectType)type
-        samples:(inout void *)samples0
+        samples:(void *)samples0
      numsamples:(unsigned int)numsamples
            samp:(int)samp_freq
              sf:(int)sf
@@ -26,5 +26,6 @@
     RevSettings EchoPara = arry_echo_para[type];
     freeverb *pEchoProcessor = new freeverb(&EchoPara);
     pEchoProcessor->process(samp_freq, sf, nchannels, samples0, numsamples, false);
+    delete pEchoProcessor;
 }
 @end

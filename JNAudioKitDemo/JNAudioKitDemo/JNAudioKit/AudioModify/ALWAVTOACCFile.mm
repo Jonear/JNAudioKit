@@ -7,8 +7,6 @@
 //
 
 #import "ALWAVTOACCFile.h"
-#import "freeverb.h"
-#import "AudioEffectType.h"
 
 @implementation JNAudioWaveAAC
 
@@ -24,12 +22,6 @@
     ExtAudioFileRef file_source = NULL;
     AudioStreamBasicDescription format_source;
     ExtAudioFileOpenURL(url_input_file, &file_source);
-    
-    freeverb *_pEchoProcessor = nil;
-    if (effectType != JNAudioEffectType_Normal) {
-        RevSettings EchoPara = arry_echo_para[effectType];
-        _pEchoProcessor = new freeverb(&EchoPara);
-    }
     
     UInt32 un_size = sizeof(format_source);
     ExtAudioFileGetProperty(file_source, kExtAudioFileProperty_FileDataFormat, &un_size, &format_source);
@@ -119,9 +111,7 @@
         }
         
         // 魔音
-        if (effectType != JNAudioEffectType_Normal && _pEchoProcessor) {
-            _pEchoProcessor->process(44100, 1, 2, fill_buf_list.mBuffers[0].mData, fill_buf_list.mBuffers[0].mDataByteSize/2, false);
-        }
+        [JNAudioEffectProcessor process:effectType samples:fill_buf_list.mBuffers[0].mData numsamples:fill_buf_list.mBuffers[0].mDataByteSize/2];
         ExtAudioFileWrite(file_dest, un_num_frames, &fill_buf_list);
     }
     if (file_source) {
