@@ -1,15 +1,15 @@
 
-#import "CMRecordManager.h"
+#import "JNRecordManager.h"
 #import <AVFoundation/AVFoundation.h>
-#import "AudioHelper.h"
+#import "JNAudioHelper.h"
 
 #define WAVE_UPDATE_FREQUENCY   0.05
 
-@interface CMRecordManager () <AVAudioRecorderDelegate>
+@interface JNRecordManager () <AVAudioRecorderDelegate>
 
 @end
 
-@implementation CMRecordManager {
+@implementation JNRecordManager {
 	NSTimer         *_timer;
 	AVAudioRecorder *_recorder;
     AVAudioPlayer   *_audioPlayer;
@@ -110,7 +110,7 @@
 							);
 	AudioSessionSetActive(true);
     
-    AVAudioSessionPortOverride audio_route_override = [[AudioHelper getInstance] hasHeadset] ? AVAudioSessionPortOverrideNone : AVAudioSessionPortOverrideSpeaker;
+    AVAudioSessionPortOverride audio_route_override = [[JNAudioHelper getInstance] hasHeadset] ? AVAudioSessionPortOverrideNone : AVAudioSessionPortOverrideSpeaker;
     [[AVAudioSession sharedInstance] overrideOutputAudioPort:audio_route_override error:nil];
     
     if (_delegate && [_delegate respondsToSelector:@selector(didStartRecord)]) {

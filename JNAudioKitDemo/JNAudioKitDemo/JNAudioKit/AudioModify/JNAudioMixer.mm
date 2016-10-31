@@ -1,15 +1,15 @@
 //
 //  KSAudioMixer.m
-//  KwSing
+//  JNAudioKitDemo
 //
-//  Created by 单 永杰 on 13-5-20.
-//  Copyright (c) 2013年 酷我音乐. All rights reserved.
+//  Created by Jonear on 13-5-20.
+//  Copyright (c) 2013年 Jonear. All rights reserved.
 //
 
-#import "KSAudioMixer.h"
+#import "JNAudioMixer.h"
 
 
-@implementation CMMixAudioInfo
+@implementation JNMixAudioInfo
 
 - (double)getStartOffsetSizeWithRate:(double)rate {
     return (self.audioOffset+self.audioStartTime)*rate;
@@ -29,7 +29,7 @@
 
 @end
 
-@implementation KSAudioMixer
+@implementation JNAudioMixer
 
 +(void) setDefaultAudioFormat:(AudioStreamBasicDescription*)audioForamt sampleRate:(Float64)f_sample_rate numChannels:(int)n_num_channels{
     memset(audioForamt, 0, sizeof(AudioStreamBasicDescription));
@@ -488,7 +488,7 @@
     NSURL* output_url = [NSURL fileURLWithPath:str_output_path];
     
     double duration = 0;
-    for (CMMixAudioInfo *audioInfo in audioArray) {
+    for (JNMixAudioInfo *audioInfo in audioArray) {
         NSURL* audioURL = [NSURL fileURLWithPath:audioInfo.audioPath];
         
         MixAudioInfoDescription tempDesc = audioInfo.mixAudioDesc;
@@ -526,7 +526,7 @@
     
     [self setDefaultAudioFormat:&client_format sampleRate:f_sample_rate numChannels:n_max_channels];
     
-    for (CMMixAudioInfo *audioInfo in audioArray) {
+    for (JNMixAudioInfo *audioInfo in audioArray) {
         MixAudioInfoDescription tempDesc = audioInfo.mixAudioDesc;
         ret_status = ExtAudioFileSetProperty(tempDesc.audioFile, kExtAudioFileProperty_ClientDataFormat, un_property_size, &client_format);
         if (noErr != ret_status) {
@@ -557,7 +557,7 @@
     UInt16 un_buf_framesize = un_buf_size/4;
     SInt16* buf_output = (SInt16*)malloc(un_buf_size);
     
-    for (CMMixAudioInfo *audioInfo in audioArray) {
+    for (JNMixAudioInfo *audioInfo in audioArray) {
         MixAudioInfoDescription tempDesc = audioInfo.mixAudioDesc;
         
         tempDesc.audioBuf = (SInt16*)malloc(un_buf_size);
@@ -585,7 +585,7 @@
 //        NSLog(@"!!!开启合成");
         UInt32 maxFrameCount = 0;
 
-        for (CMMixAudioInfo *audioInfo in audioArray) {
+        for (JNMixAudioInfo *audioInfo in audioArray) {
             
             MixAudioInfoDescription tempDesc = audioInfo.mixAudioDesc;
             
@@ -644,12 +644,12 @@
         for (int n_index = 0; n_index < un_length; ++n_index) {
             
             SInt32 value_buf = 0;
-            for (CMMixAudioInfo *audioInfo in audioArray) {
+            for (JNMixAudioInfo *audioInfo in audioArray) {
                 MixAudioInfoDescription tempDesc = audioInfo.mixAudioDesc;
                 
                 if (tempDesc.audioBufFrameCount != 0) {
                     if (value_buf != 0) {
-                        value_buf = [KSAudioMixer mixbuf:value_buf buf2:(SInt16)(*(tempDesc.audioBuf+n_index)) index:n_index];
+                        value_buf = [JNAudioMixer mixbuf:value_buf buf2:(SInt16)(*(tempDesc.audioBuf+n_index)) index:n_index];
                     } else {
                         value_buf = (SInt16)(*(tempDesc.audioBuf+n_index));
                     }
@@ -671,7 +671,7 @@
    
     }
     
-    for (CMMixAudioInfo *audioInfo in audioArray) {
+    for (JNMixAudioInfo *audioInfo in audioArray) {
         MixAudioInfoDescription tempDesc = audioInfo.mixAudioDesc;
         ExtAudioFileDispose(tempDesc.audioFile);
     }

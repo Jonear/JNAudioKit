@@ -1,9 +1,9 @@
 //
-//  AudioHelper.h
-//  KwSing
+//  JNAudioHelper.h
+//  JNAudioKitDemo
 //
-//  Created by Zhai HaiPIng on 12-8-21.
-//  Copyright (c) 2012年 酷我音乐. All rights reserved.
+//  Created by Jonear on 12-8-21.
+//  Copyright (c) 2012年 Jonear. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -14,9 +14,9 @@
 // object(NSNumber:BOOL) //...
 #define CMNotificationMicophoneChanged @"CMNotificationMicophoneChanged"
 
-@interface AudioHelper : NSObject
+@interface JNAudioHelper : NSObject
 
-+ (AudioHelper*) getInstance;
++ (JNAudioHelper*) getInstance;
 
 - (BOOL)hasHeadset;
 - (BOOL)hasMicophone;

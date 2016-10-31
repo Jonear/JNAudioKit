@@ -13,15 +13,14 @@
 		E6C12D981DBE3A410080C8ED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6C12D961DBE3A410080C8ED /* Main.storyboard */; };
 		E6C12D9A1DBE3A410080C8ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6C12D991DBE3A410080C8ED /* Assets.xcassets */; };
 		E6C12D9D1DBE3A410080C8ED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6C12D9B1DBE3A410080C8ED /* LaunchScreen.storyboard */; };
-		E6CCBB681DC049A6001883C2 /* KSAudioCroper.mm in Sources */ = {isa = PBXBuildFile; fileRef = E6CCBB5C1DC049A6001883C2 /* KSAudioCroper.mm */; };
-		E6CCBB691DC049A6001883C2 /* KSAudioMixer.mm in Sources */ = {isa = PBXBuildFile; fileRef = E6CCBB5E1DC049A6001883C2 /* KSAudioMixer.mm */; };
-		E6CCBB6A1DC049A6001883C2 /* KSAVPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = E6CCBB611DC049A6001883C2 /* KSAVPlayer.m */; };
-		E6CCBB6B1DC049A6001883C2 /* AudioHelper.mm in Sources */ = {isa = PBXBuildFile; fileRef = E6CCBB641DC049A6001883C2 /* AudioHelper.mm */; };
-		E6CCBB6C1DC049A6001883C2 /* CMRecordManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E6CCBB661DC049A6001883C2 /* CMRecordManager.m */; };
-		E6CCBB731DC05A44001883C2 /* ALWAVTOACCFile.mm in Sources */ = {isa = PBXBuildFile; fileRef = E6CCBB721DC05A44001883C2 /* ALWAVTOACCFile.mm */; };
+		E6CCBB681DC049A6001883C2 /* JNAudioCroper.mm in Sources */ = {isa = PBXBuildFile; fileRef = E6CCBB5C1DC049A6001883C2 /* JNAudioCroper.mm */; };
+		E6CCBB691DC049A6001883C2 /* JNAudioMixer.mm in Sources */ = {isa = PBXBuildFile; fileRef = E6CCBB5E1DC049A6001883C2 /* JNAudioMixer.mm */; };
+		E6CCBB6A1DC049A6001883C2 /* JNAVPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = E6CCBB611DC049A6001883C2 /* JNAVPlayer.m */; };
+		E6CCBB6B1DC049A6001883C2 /* JNAudioHelper.mm in Sources */ = {isa = PBXBuildFile; fileRef = E6CCBB641DC049A6001883C2 /* JNAudioHelper.mm */; };
+		E6CCBB6C1DC049A6001883C2 /* JNRecordManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E6CCBB661DC049A6001883C2 /* JNRecordManager.m */; };
+		E6CCBB731DC05A44001883C2 /* JNAudioWaveAAC.mm in Sources */ = {isa = PBXBuildFile; fileRef = E6CCBB721DC05A44001883C2 /* JNAudioWaveAAC.mm */; };
 		E6CCBB7E1DC0861C001883C2 /* freeverb.mm in Sources */ = {isa = PBXBuildFile; fileRef = E6CCBB7B1DC0861C001883C2 /* freeverb.mm */; };
 		E6CCBB7F1DC0861C001883C2 /* revmodel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E6CCBB7C1DC0861C001883C2 /* revmodel.cpp */; };
-		E6CCBB841DC090AE001883C2 /* asd.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E6CCBB831DC090AE001883C2 /* asd.mp3 */; };
 		E6CCBB871DC0D5EE001883C2 /* JNAudioEffectProcessor.mm in Sources */ = {isa = PBXBuildFile; fileRef = E6CCBB861DC0D5EE001883C2 /* JNAudioEffectProcessor.mm */; };
 /* End PBXBuildFile section */
 
@@ -36,18 +35,18 @@
 		E6C12D991DBE3A410080C8ED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E6C12D9C1DBE3A410080C8ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E6C12D9E1DBE3A410080C8ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E6CCBB5B1DC049A6001883C2 /* KSAudioCroper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSAudioCroper.h; sourceTree = "<group>"; };
-		E6CCBB5C1DC049A6001883C2 /* KSAudioCroper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = KSAudioCroper.mm; sourceTree = "<group>"; };
-		E6CCBB5D1DC049A6001883C2 /* KSAudioMixer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSAudioMixer.h; sourceTree = "<group>"; };
-		E6CCBB5E1DC049A6001883C2 /* KSAudioMixer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = KSAudioMixer.mm; sourceTree = "<group>"; };
-		E6CCBB601DC049A6001883C2 /* KSAVPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSAVPlayer.h; sourceTree = "<group>"; };
-		E6CCBB611DC049A6001883C2 /* KSAVPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSAVPlayer.m; sourceTree = "<group>"; };
-		E6CCBB631DC049A6001883C2 /* AudioHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioHelper.h; sourceTree = "<group>"; };
-		E6CCBB641DC049A6001883C2 /* AudioHelper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AudioHelper.mm; sourceTree = "<group>"; };
-		E6CCBB651DC049A6001883C2 /* CMRecordManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMRecordManager.h; sourceTree = "<group>"; };
-		E6CCBB661DC049A6001883C2 /* CMRecordManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMRecordManager.m; sourceTree = "<group>"; };
-		E6CCBB711DC05A44001883C2 /* ALWAVTOACCFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALWAVTOACCFile.h; sourceTree = "<group>"; };
-		E6CCBB721DC05A44001883C2 /* ALWAVTOACCFile.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ALWAVTOACCFile.mm; sourceTree = "<group>"; };
+		E6CCBB5B1DC049A6001883C2 /* JNAudioCroper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JNAudioCroper.h; sourceTree = "<group>"; };
+		E6CCBB5C1DC049A6001883C2 /* JNAudioCroper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = JNAudioCroper.mm; sourceTree = "<group>"; };
+		E6CCBB5D1DC049A6001883C2 /* JNAudioMixer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JNAudioMixer.h; sourceTree = "<group>"; };
+		E6CCBB5E1DC049A6001883C2 /* JNAudioMixer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = JNAudioMixer.mm; sourceTree = "<group>"; };
+		E6CCBB601DC049A6001883C2 /* JNAVPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JNAVPlayer.h; sourceTree = "<group>"; };
+		E6CCBB611DC049A6001883C2 /* JNAVPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JNAVPlayer.m; sourceTree = "<group>"; };
+		E6CCBB631DC049A6001883C2 /* JNAudioHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JNAudioHelper.h; sourceTree = "<group>"; };
+		E6CCBB641DC049A6001883C2 /* JNAudioHelper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = JNAudioHelper.mm; sourceTree = "<group>"; };
+		E6CCBB651DC049A6001883C2 /* JNRecordManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JNRecordManager.h; sourceTree = "<group>"; };
+		E6CCBB661DC049A6001883C2 /* JNRecordManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JNRecordManager.m; sourceTree = "<group>"; };
+		E6CCBB711DC05A44001883C2 /* JNAudioWaveAAC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JNAudioWaveAAC.h; sourceTree = "<group>"; };
+		E6CCBB721DC05A44001883C2 /* JNAudioWaveAAC.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = JNAudioWaveAAC.mm; sourceTree = "<group>"; };
 		E6CCBB751DC0861C001883C2 /* allpass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = allpass.h; sourceTree = "<group>"; };
 		E6CCBB761DC0861C001883C2 /* AudioEffectType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioEffectType.h; sourceTree = "<group>"; };
 		E6CCBB771DC0861C001883C2 /* comb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = comb.h; sourceTree = "<group>"; };
@@ -57,7 +56,6 @@
 		E6CCBB7B1DC0861C001883C2 /* freeverb.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = freeverb.mm; sourceTree = "<group>"; };
 		E6CCBB7C1DC0861C001883C2 /* revmodel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = revmodel.cpp; sourceTree = "<group>"; };
 		E6CCBB7D1DC0861C001883C2 /* revmodel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = revmodel.h; sourceTree = "<group>"; };
-		E6CCBB831DC090AE001883C2 /* asd.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = asd.mp3; sourceTree = "<group>"; };
 		E6CCBB851DC0D5EE001883C2 /* JNAudioEffectProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JNAudioEffectProcessor.h; sourceTree = "<group>"; };
 		E6CCBB861DC0D5EE001883C2 /* JNAudioEffectProcessor.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = JNAudioEffectProcessor.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -108,7 +106,6 @@
 				E6C12D911DBE3A410080C8ED /* AppDelegate.m */,
 				E6C12D931DBE3A410080C8ED /* ViewController.h */,
 				E6C12D941DBE3A410080C8ED /* ViewController.m */,
-				E6CCBB831DC090AE001883C2 /* asd.mp3 */,
 				E6C12D961DBE3A410080C8ED /* Main.storyboard */,
 				E6C12D991DBE3A410080C8ED /* Assets.xcassets */,
 				E6C12D9B1DBE3A410080C8ED /* LaunchScreen.storyboard */,
@@ -129,12 +126,12 @@
 		E6CCBB581DC049A6001883C2 /* AudioModify */ = {
 			isa = PBXGroup;
 			children = (
-				E6CCBB711DC05A44001883C2 /* ALWAVTOACCFile.h */,
-				E6CCBB721DC05A44001883C2 /* ALWAVTOACCFile.mm */,
-				E6CCBB5B1DC049A6001883C2 /* KSAudioCroper.h */,
-				E6CCBB5C1DC049A6001883C2 /* KSAudioCroper.mm */,
-				E6CCBB5D1DC049A6001883C2 /* KSAudioMixer.h */,
-				E6CCBB5E1DC049A6001883C2 /* KSAudioMixer.mm */,
+				E6CCBB711DC05A44001883C2 /* JNAudioWaveAAC.h */,
+				E6CCBB721DC05A44001883C2 /* JNAudioWaveAAC.mm */,
+				E6CCBB5B1DC049A6001883C2 /* JNAudioCroper.h */,
+				E6CCBB5C1DC049A6001883C2 /* JNAudioCroper.mm */,
+				E6CCBB5D1DC049A6001883C2 /* JNAudioMixer.h */,
+				E6CCBB5E1DC049A6001883C2 /* JNAudioMixer.mm */,
 				E6CCBB851DC0D5EE001883C2 /* JNAudioEffectProcessor.h */,
 				E6CCBB861DC0D5EE001883C2 /* JNAudioEffectProcessor.mm */,
 			);
@@ -144,8 +141,8 @@
 		E6CCBB5F1DC049A6001883C2 /* AudioPlayer */ = {
 			isa = PBXGroup;
 			children = (
-				E6CCBB601DC049A6001883C2 /* KSAVPlayer.h */,
-				E6CCBB611DC049A6001883C2 /* KSAVPlayer.m */,
+				E6CCBB601DC049A6001883C2 /* JNAVPlayer.h */,
+				E6CCBB611DC049A6001883C2 /* JNAVPlayer.m */,
 			);
 			path = AudioPlayer;
 			sourceTree = "<group>";
@@ -153,10 +150,10 @@
 		E6CCBB621DC049A6001883C2 /* RecordHelper */ = {
 			isa = PBXGroup;
 			children = (
-				E6CCBB631DC049A6001883C2 /* AudioHelper.h */,
-				E6CCBB641DC049A6001883C2 /* AudioHelper.mm */,
-				E6CCBB651DC049A6001883C2 /* CMRecordManager.h */,
-				E6CCBB661DC049A6001883C2 /* CMRecordManager.m */,
+				E6CCBB631DC049A6001883C2 /* JNAudioHelper.h */,
+				E6CCBB641DC049A6001883C2 /* JNAudioHelper.mm */,
+				E6CCBB651DC049A6001883C2 /* JNRecordManager.h */,
+				E6CCBB661DC049A6001883C2 /* JNRecordManager.m */,
 			);
 			path = RecordHelper;
 			sourceTree = "<group>";
@@ -237,7 +234,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E6C12D9D1DBE3A410080C8ED /* LaunchScreen.storyboard in Resources */,
-				E6CCBB841DC090AE001883C2 /* asd.mp3 in Resources */,
 				E6C12D9A1DBE3A410080C8ED /* Assets.xcassets in Resources */,
 				E6C12D981DBE3A410080C8ED /* Main.storyboard in Resources */,
 			);
@@ -250,13 +246,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E6CCBB6C1DC049A6001883C2 /* CMRecordManager.m in Sources */,
-				E6CCBB6B1DC049A6001883C2 /* AudioHelper.mm in Sources */,
+				E6CCBB6C1DC049A6001883C2 /* JNRecordManager.m in Sources */,
+				E6CCBB6B1DC049A6001883C2 /* JNAudioHelper.mm in Sources */,
 				E6CCBB871DC0D5EE001883C2 /* JNAudioEffectProcessor.mm in Sources */,
-				E6CCBB681DC049A6001883C2 /* KSAudioCroper.mm in Sources */,
-				E6CCBB6A1DC049A6001883C2 /* KSAVPlayer.m in Sources */,
-				E6CCBB691DC049A6001883C2 /* KSAudioMixer.mm in Sources */,
-				E6CCBB731DC05A44001883C2 /* ALWAVTOACCFile.mm in Sources */,
+				E6CCBB681DC049A6001883C2 /* JNAudioCroper.mm in Sources */,
+				E6CCBB6A1DC049A6001883C2 /* JNAVPlayer.m in Sources */,
+				E6CCBB691DC049A6001883C2 /* JNAudioMixer.mm in Sources */,
+				E6CCBB731DC05A44001883C2 /* JNAudioWaveAAC.mm in Sources */,
 				E6C12D951DBE3A410080C8ED /* ViewController.m in Sources */,
 				E6CCBB7F1DC0861C001883C2 /* revmodel.cpp in Sources */,
 				E6C12D921DBE3A410080C8ED /* AppDelegate.m in Sources */,

@@ -8,21 +8,21 @@
 
 #import "ViewController.h"
 
-#import "KSAVPlayer.h"
-#import "CMRecordManager.h"
-#import "ALWAVTOACCFile.h"
+#import "JNAVPlayer.h"
+#import "JNRecordManager.h"
+#import "JNAudioWaveAAC.h"
 #import "JNAudioEffectProcessor.h"
 
-@interface ViewController () <CMRecordDelegate, KSAVPlayerDelegate>
+@interface ViewController () <JNRecordDelegate, JNAVPlayerDelegate>
 
 @end
 
 @implementation ViewController {
-    KSAVPlayer *audioPlayer;
+    JNAVPlayer *audioPlayer;
     NSString *_strpath;
     NSString *_aacstrpath;
     UIButton *_demoButton;
-    CMRecordManager *record;
+    JNRecordManager *record;
 }
 
 - (void)viewDidLoad {
@@ -32,10 +32,10 @@
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
     _strpath = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"a.wav"];
     _aacstrpath = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"aac.m4a"];
-    record = [[CMRecordManager alloc] init];
+    record = [[JNRecordManager alloc] init];
     record.delegate = self;
     
-    audioPlayer = [[KSAVPlayer alloc] init];
+    audioPlayer = [[JNAVPlayer alloc] init];
     audioPlayer.delegate = self;
     
     _demoButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 400, 100, 100)];
@@ -83,7 +83,7 @@
     }
 }
 
-// MARK: - CMRecordDelegate
+// MARK: - JNRecordDelegate
 
 - (void)didStartRecord {
     
@@ -99,19 +99,19 @@
 }
 
 
-// MARK: - KSAVPlayerDelegate
+// MARK: - JNAVPlayerDelegate
 
-- (void)didPlayStateChanged:(KSAVPlayer *)player playing:(BOOL)isPlaying {
+- (void)didPlayStateChanged:(JNAVPlayer *)player playing:(BOOL)isPlaying {
     
 }
-- (void)didPlayFinished:(KSAVPlayer *)player {
+- (void)didPlayFinished:(JNAVPlayer *)player {
     if (![[_demoButton titleForState:UIControlStateNormal] isEqualToString:@"over"]) {
         [_demoButton setEnabled:YES];
         [_demoButton setTitle:@"to aac" forState:UIControlStateNormal];
     }
 }
 
-- (void)didPlayError:(KSAVPlayer *)player {
+- (void)didPlayError:(JNAVPlayer *)player {
     
 }
 

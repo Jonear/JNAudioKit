@@ -1,5 +1,5 @@
 //
-//  KSAVPlayer.h
+//  JNAVPlayer.h
 //  CropMusic
 //
 //  Created by Jonear on 15/1/3.
@@ -9,15 +9,15 @@
 #import <Foundation/Foundation.h>
 #import <AVFoundation/AVFoundation.h>
 
-@protocol KSAVPlayerDelegate;
+@protocol JNAVPlayerDelegate;
 
-@interface KSAVPlayer : NSObject{
+@interface JNAVPlayer : NSObject{
     AVPlayer* m_pAudioAVPlayer;
     BOOL m_bPlaying;
     NSURL* m_pAudioURL;
 }
 
-@property (weak, nonatomic) id<KSAVPlayerDelegate> delegate;
+@property (weak, nonatomic) id<JNAVPlayerDelegate> delegate;
 
 - (BOOL)initWithURL:(NSURL*)audio_url;
 - (BOOL)play;
@@ -34,10 +34,10 @@
 
 @end
 
-@protocol KSAVPlayerDelegate <NSObject>
+@protocol JNAVPlayerDelegate <NSObject>
 
-- (void)didPlayStateChanged:(KSAVPlayer *)player playing:(BOOL)isPlaying;
-- (void)didPlayFinished:(KSAVPlayer *)player;
-- (void)didPlayError:(KSAVPlayer *)player;
+- (void)didPlayStateChanged:(JNAVPlayer *)player playing:(BOOL)isPlaying;
+- (void)didPlayFinished:(JNAVPlayer *)player;
+- (void)didPlayError:(JNAVPlayer *)player;
 
 @end

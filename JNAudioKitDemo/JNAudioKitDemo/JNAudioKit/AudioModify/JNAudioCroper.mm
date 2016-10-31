@@ -1,16 +1,16 @@
 //
-//  KSAudioMixer.m
-//  KwSing
+//  JNAudioCroper.m
+//  JNAudioKitDemo
 //
-//  Created by 单 永杰 on 13-5-20.
-//  Copyright (c) 2013年 酷我音乐. All rights reserved.
+//  Created by Jonear on 13-5-20.
+//  Copyright (c) 2013年 Jonear. All rights reserved.
 //
 
-#import "KSAudioCroper.h"
+#import "JNAudioCroper.h"
 #import <AudioToolbox/AudioFile.h>
 #import <AudioToolbox/AudioToolbox.h>
 
-@implementation KSAudioCroper
+@implementation JNAudioCroper
 
 +(void) setDefaultAudioFormat : (AudioStreamBasicDescription*)audioForamt sampleRate : (Float64)f_sample_rate numChannels : (int)n_num_channels{
     memset(audioForamt, 0, sizeof(AudioStreamBasicDescription));

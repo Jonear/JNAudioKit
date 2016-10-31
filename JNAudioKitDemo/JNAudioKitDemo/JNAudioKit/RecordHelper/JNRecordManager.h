@@ -1,16 +1,16 @@
 
 #import <UIKit/UIKit.h>
-#import "AVFoundation/AVAudioPlayer.h"
+//#import "AVFoundation/AVAudioPlayer.h"
 
-@protocol CMRecordDelegate;
+@protocol JNRecordDelegate;
 
-@interface CMRecordManager : NSObject 
+@interface JNRecordManager : NSObject 
 
 @property (nonatomic, strong) NSString *recordFilePath;
 @property (nonatomic, assign) CGFloat   recordTime;
 @property (nonatomic, assign) NSUInteger voiceLevel;
 
-@property (weak, nonatomic) id<CMRecordDelegate> delegate;
+@property (weak, nonatomic) id<JNRecordDelegate> delegate;
 
 //+ (id)defaultManager;
 
@@ -19,7 +19,7 @@
 
 @end
 
-@protocol CMRecordDelegate <NSObject>
+@protocol JNRecordDelegate <NSObject>
 
 - (void)didStartRecord;
 - (void)didFinishRecord;

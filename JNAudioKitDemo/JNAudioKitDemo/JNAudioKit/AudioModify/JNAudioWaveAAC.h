@@ -1,9 +1,9 @@
 //
-//  ALWAVTOACCFile.h
-//  WeSing
+//  JNAudioWaveAAC.h
+//  JNAudioKitDemo
 //
-//  Created by 刘长江 on 15/8/3.
-//  Copyright (c) 2015年 刘长江. All rights reserved.
+//  Created by Jonear on 15/8/3.
+//  Copyright (c) 2015年 Jonear. All rights reserved.
 //
 
 #import <AudioToolbox/AudioFile.h>

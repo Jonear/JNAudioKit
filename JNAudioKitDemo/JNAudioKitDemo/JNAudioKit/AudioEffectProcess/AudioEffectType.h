@@ -1,13 +1,13 @@
 //
 //  AudioEffectType.h
-//  KwSing
+//  JNAudioKitDemo
 //
 //  Created by 永杰 单 on 12-8-2.
-//  Copyright (c) 2012年 酷我音乐. All rights reserved.
+//  Copyright (c) 2012年 Jonear. All rights reserved.
 //
 
-#ifndef KwSing_AudioEffectType_h
-#define KwSing_AudioEffectType_h
+#ifndef JNAudioKitDemo_AudioEffectType_h
+#define JNAudioKitDemo_AudioEffectType_h
 
 #ifndef FREEVERB_H
 #include "freeverb.h"

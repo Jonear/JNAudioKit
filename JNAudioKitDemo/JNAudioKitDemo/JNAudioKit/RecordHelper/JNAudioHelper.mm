@@ -1,31 +1,31 @@
 //
-//  AudioHelper.m
-//  KwSing
+//  JNAudioHelper.m
+//  JNAudioKitDemo
 //
-//  Created by Zhai HaiPIng on 12-8-21.
-//  Copyright (c) 2012年 酷我音乐. All rights reserved.
+//  Created by Jonear on 12-8-21.
+//  Copyright (c) 2012年 Jonear. All rights reserved.
 //
 
-#import "AudioHelper.h"
+#import "JNAudioHelper.h"
 #import <AVFoundation/AVFoundation.h>
 #import <AudioToolbox/AudioToolbox.h>
 #import <AudioToolbox/AudioServices.h>
 
-@interface AudioHelper()
+@interface JNAudioHelper()
 {
     BOOL _hasMicrophone;
     BOOL _hasHeadset;
 }
 @end
 
-@implementation AudioHelper
+@implementation JNAudioHelper
 
-+ (AudioHelper*) getInstance;
++ (JNAudioHelper*) getInstance;
 {
-    static AudioHelper *pInstance = nil;
+    static JNAudioHelper *pInstance = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        pInstance = [[AudioHelper alloc] init];
+        pInstance = [[JNAudioHelper alloc] init];
         [pInstance initSession];
     });
     return pInstance;

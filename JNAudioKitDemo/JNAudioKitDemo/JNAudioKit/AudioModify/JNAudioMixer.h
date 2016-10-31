@@ -1,9 +1,9 @@
 //
-//  KSAudioMixer.h
-//  KwSing
+//  JNAudioMixer.h
+//  JNAudioKitDemo
 //
-//  Created by 单 永杰 on 13-5-20.
-//  Copyright (c) 2013年 酷我音乐. All rights reserved.
+//  Created by Jonear on 13-5-20.
+//  Copyright (c) 2013年 Jonear. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -23,7 +23,7 @@ struct MixAudioInfoDescription
     SInt16                     *audioBuf;
 };
 
-@interface CMMixAudioInfo : NSObject
+@interface JNMixAudioInfo : NSObject
 
 @property (strong, nonatomic) NSString *audioPath;        //音频路径
 @property (assign, nonatomic) double    audioOffset;      //起始偏移量
@@ -38,7 +38,7 @@ struct MixAudioInfoDescription
 @end
 
 
-@interface KSAudioMixer : NSObject
+@interface JNAudioMixer : NSObject
 
 /**
  *  两个音频合成
@@ -60,7 +60,7 @@ struct MixAudioInfoDescription
 /**
  *  多个音频合成
  *
- *  @param audioArray      音频数组（CMMixAudioInfo类型）
+ *  @param audioArray      音频数组（JNMixAudioInfo类型）
  *  @param str_output_path 合成后输出的路径
  *
  *  @return 是否开始正常合成

@@ -1,16 +1,16 @@
 //
-//  KSAVPlayer.m
+//  JNAVPlayer.m
 //  CropMusic
 //
 //  Created by Jonear on 15/1/3.
 //  Copyright (c) 2015年 Jonear. All rights reserved.
 //
 
-#import "KSAVPlayer.h"
-#import "AudioHelper.h"
+#import "JNAVPlayer.h"
+#import "JNAudioHelper.h"
 #import "JNAudioEffectProcessor.h"
 
-@implementation KSAVPlayer {
+@implementation JNAVPlayer {
     AVPlayerItem *_playerItem;
 }
 
@@ -55,9 +55,9 @@
 }
 
 - (BOOL)play {
-//    UInt32 audio_route_override = [[AudioHelper getInstance] hasHeadset] ? kAudioSessionOverrideAudioRoute_None : kAudioSessionOverrideAudioRoute_Speaker;
+//    UInt32 audio_route_override = [[JNAudioHelper getInstance] hasHeadset] ? kAudioSessionOverrideAudioRoute_None : kAudioSessionOverrideAudioRoute_Speaker;
 //    AudioSessionSetProperty(kAudioSessionProperty_OverrideAudioRoute, sizeof(audio_route_override), &audio_route_override);
-    AVAudioSessionPortOverride audio_route_override = [[AudioHelper getInstance] hasHeadset] ? AVAudioSessionPortOverrideNone : AVAudioSessionPortOverrideSpeaker;
+    AVAudioSessionPortOverride audio_route_override = [[JNAudioHelper getInstance] hasHeadset] ? AVAudioSessionPortOverrideNone : AVAudioSessionPortOverrideSpeaker;
     [[AVAudioSession sharedInstance] overrideOutputAudioPort:audio_route_override error:nil];
     
     [[AVAudioSession sharedInstance] setActive:YES error:nil];
@@ -70,9 +70,9 @@
 
 - (BOOL)continuePlay {
 //    sleep(1);
-//    UInt32 audio_route_override = [[AudioHelper getInstance] hasHeadset] ? kAudioSessionOverrideAudioRoute_None : kAudioSessionOverrideAudioRoute_Speaker;
+//    UInt32 audio_route_override = [[JNAudioHelper getInstance] hasHeadset] ? kAudioSessionOverrideAudioRoute_None : kAudioSessionOverrideAudioRoute_Speaker;
 //    AudioSessionSetProperty(kAudioSessionProperty_OverrideAudioRoute, sizeof(audio_route_override), &audio_route_override);
-    AVAudioSessionPortOverride audio_route_override = [[AudioHelper getInstance] hasHeadset] ? AVAudioSessionPortOverrideNone : AVAudioSessionPortOverrideSpeaker;
+    AVAudioSessionPortOverride audio_route_override = [[JNAudioHelper getInstance] hasHeadset] ? AVAudioSessionPortOverrideNone : AVAudioSessionPortOverrideSpeaker;
     [[AVAudioSession sharedInstance] overrideOutputAudioPort:audio_route_override error:nil];
     
     [[AVAudioSession sharedInstance] setActive:YES error:nil];
