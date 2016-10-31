@@ -82,7 +82,7 @@ void revmodel::processreplace(float *l, float *r,int numsamples, int skip)
 	while(numsamples-- > 0)
 	{
 		float input = (*l + *r) * gain;
-                float outL=0,outR=0;
+        float outL=0,outR=0;
 
 		// Accumulate comb filters in parallel
 		int i;

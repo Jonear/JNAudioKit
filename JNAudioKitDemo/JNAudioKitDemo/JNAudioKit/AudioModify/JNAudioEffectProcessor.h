@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 typedef NS_ENUM(NSInteger, JNAudioEffectType) {
-    JNAudioEffectType_Normal,          // regular table view
+    JNAudioEffectType_Normal = 0,        // regular table view
     JNAudioEffectType_SmallRoom,         // preferences style table view
     JNAudioEffectType_MidRoom,
     JNAudioEffectType_BigRoom,
@@ -20,4 +20,12 @@ typedef NS_ENUM(NSInteger, JNAudioEffectType) {
 @interface JNAudioEffectProcessor : NSObject
 
 + (void)process:(JNAudioEffectType)type samples:(void *)samples0 numsamples:(unsigned int)numsamples;
+
++ (void)process:(JNAudioEffectType)type
+        samples:(void *)samples0
+     numsamples:(unsigned int)numsamples
+           samp:(int)samp_freq
+             sf:(int)sf
+      nchannels:(int)nchannels;
+
 @end

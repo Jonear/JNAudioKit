@@ -74,8 +74,9 @@ void freeverb::process(int samp_freq, int sf, int nchannels, void *samples0,unsi
     }
 	float * samples = new float[numsamples];
 	short * pIn = (short *)samples0;
-	for(int i =0; i < (int)numsamples; i ++)
+    for(int i =0; i < (int)numsamples; i ++) {
 		samples[i] = (float)pIn[i] * divisor;
+    }
 	m_rev->processreplace(samples, samples + 1, (int)numsamples / nchannels, 2);
 	for(int i =0; i < (int)numsamples; i ++){
 // temporary marked
@@ -91,3 +92,4 @@ void freeverb::process(int samp_freq, int sf, int nchannels, void *samples0,unsi
 	//}
 
 }
+

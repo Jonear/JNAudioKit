@@ -58,12 +58,13 @@
     } else if ([[_demoButton titleForState:UIControlStateNormal] isEqualToString:@"play"]) {
         [_demoButton setTitle:@"playing" forState:UIControlStateNormal];
         [_demoButton setEnabled:NO];
-        
+
         [audioPlayer initWithURL:[NSURL fileURLWithPath:_strpath]];
         [audioPlayer play];
+        
     } else if ([[_demoButton titleForState:UIControlStateNormal] isEqualToString:@"to aac"]) {
         dispatch_async(dispatch_get_global_queue(0, 0), ^{
-            [JNAudioWaveAAC audioWavToAAC:_strpath outputFile:_aacstrpath rate:48000 effectType:JNAudioEffectType_HallRoom];
+            [JNAudioWaveAAC audioWavToAAC:_strpath outputFile:_aacstrpath rate:48000 effectType:JNAudioEffectType_BigRoom];
         });
         [_demoButton setTitle:@"aac ing" forState:UIControlStateNormal];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(saveChanged:) name:Noti_SaveProgressChanged object:nil];
@@ -72,7 +73,6 @@
         [audioPlayer initWithURL:[NSURL fileURLWithPath:_aacstrpath]];
         [audioPlayer play];
     }
-    
 }
 
 - (void)saveChanged:(NSNotification *)notification {
